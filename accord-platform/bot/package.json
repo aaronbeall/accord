@@ -1,0 +1,30 @@
+{
+  "name": "accord-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for Accord platform to manage notifications and alerts.",
+  "main": "src/bot.ts",
+  "scripts": {
+    "start": "ts-node src/bot.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/bot.ts"
+  },
+  "dependencies": {
+    "discord.js": "^14.0.0",
+    "dotenv": "^10.0.0",
+    "node-notifier": "^10.0.0",
+    "play-sound": "^1.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.0"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "notifications",
+    "alerts"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
