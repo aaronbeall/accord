@@ -2,7 +2,7 @@ services:
   - type: web
     name: accord-frontend
     env: docker
-    buildCommand: docker build -t accord-frontend ./frontend
+    buildCommand: docker build -t accord-frontend ./accord-platform/frontend
     startCommand: docker run accord-frontend
     envVars:
       - key: VITE_API_URL
@@ -11,7 +11,7 @@ services:
   - type: web
     name: accord-backend
     env: docker
-    buildCommand: docker build -t accord-backend ./backend
+    buildCommand: docker build -t accord-backend ./accord-platform/backend
     startCommand: docker run accord-backend
     envVars:
       - key: NODE_ENV
@@ -24,7 +24,7 @@ services:
   - type: worker
     name: accord-bot
     env: docker
-    buildCommand: docker build -t accord-bot ./bot
+    buildCommand: docker build -t accord-bot ./accord-platform/bot
     startCommand: docker run accord-bot
     envVars:
       - key: DISCORD_BOT_TOKEN
