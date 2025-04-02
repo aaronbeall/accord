@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: accord-frontend
+    env: docker
+    buildCommand: docker build -t accord-frontend ./frontend
+    startCommand: docker run accord-frontend
+    envVars:
+      - key: VITE_API_URL
+        value: https://accord-backend.onrender.com
+
+  - type: web
+    name: accord-backend
+    env: docker
+    buildCommand: docker build -t accord-backend ./backend
+    startCommand: docker run accord-backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: accord-db
+          property: connectionString
+
+  - type: worker
+    name: accord-bot
+    env: docker
+    buildCommand: docker build -t accord-bot ./bot
+    startCommand: docker run accord-bot
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+
+databases:
+  - name: accord-db
+    databaseName: accord
+    ipAllowList: []
